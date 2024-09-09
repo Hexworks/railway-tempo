@@ -31,6 +31,11 @@ distributor:
         http:
 #        grpc:
 #    opencensus:
+# 📕 This, and all the other places where the interface name is hardcoded is necessary because
+# tempo sets it to eth0 and it doesn't exist on Railway!
+ring:
+  instance_interface_names:
+    - railnet0
 
 ingester:
   lifecycler:
@@ -42,10 +47,14 @@ compactor:
     kvstore:
       store: memberlist
     enable_inet6: true
+    instance_interface_names:
+      - railnet0
 
 metrics_generator:
   ring:
     enable_inet6: true
+    instance_interface_names:
+      - railnet0
   registry:
     external_labels:
       source: tempo
