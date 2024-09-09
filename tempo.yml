@@ -69,5 +69,8 @@ storage:
 overrides:
   defaults:
     metrics_generator:
-      processors: [service-graphs, span-metrics, local-blocks] # enables metrics generator
-
+      processors: [service-graphs, span-metrics, local-blocks] # enables metrics generatorv
+common:
+  ring:
+    instance_interface_names: 
+      - railnet0
